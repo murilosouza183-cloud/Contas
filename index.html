@@ -30,14 +30,15 @@ h2{font-size:1rem;margin:18px 4px 6px;color:var(--mut);font-weight:600}
 .item{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;margin-bottom:6px}
 .item input[type=checkbox]{width:26px;height:26px;accent-color:var(--ok);flex:none}
 .item .t{flex:1;min-width:0;text-align:left;background:none;border:0;padding:0}
-.item .n{display:block;overflow-wrap:anywhere}
+.item .n{display:block;overflow-wrap:anywhere;font-weight:500}
 .item small{color:var(--mut)}
 .item .v{font-variant-numeric:tabular-nums;font-weight:600}
 .item.done .n,.item.done .v{text-decoration:line-through;opacity:.55}
-.tag{display:inline-block;background:var(--line);border-radius:6px;padding:0 6px;margin-right:4px;font-size:.78rem;color:var(--ink)}
+.tag{display:inline-block;background:var(--line);border-radius:6px;padding:1px 6px;margin-right:4px;font-size:.78rem;color:var(--ink)}
 .empty{color:var(--mut);text-align:center;padding:14px}
 .add{background:var(--acc);color:var(--bg);border:0;border-radius:10px;padding:10px 14px;font-weight:600}
-.fab{position:fixed;right:max(16px,calc(50% - 264px));bottom:calc(16px + env(safe-area-inset-bottom));background:var(--acc);color:var(--bg);border:0;border-radius:28px;padding:0 22px;height:52px;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.fab{position:fixed;right:max(16px,calc(50% - 264px));bottom:calc(16px + env(safe-area-inset-bottom));background:var(--acc);color:var(--bg);border:0;border-radius:28px;padding:0 22px;height:52px;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.25);z-index:20}
+.fab-adv{position:fixed;left:max(16px,calc(50% - 264px));bottom:calc(16px + env(safe-area-inset-bottom));background:var(--card);color:var(--ink);border:2px solid var(--acc);border-radius:28px;padding:0 16px;height:52px;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.2);display:flex;align-items:center;gap:6px;z-index:20}
 dialog{border:0;border-radius:16px;background:var(--card);color:var(--ink);width:min(94vw,440px);padding:18px}
 dialog::backdrop{background:rgba(0,0,0,.45)}
 label{display:block;margin:10px 0 4px;font-size:.9rem;color:var(--mut)}
@@ -57,6 +58,47 @@ input[type=text],input[type=number],input[type=month],select{width:100%;font:inh
 .item.soon{border-left:6px solid var(--warn);background:color-mix(in srgb,var(--warn) 20%,var(--card))}
 .chk{display:flex;gap:8px;align-items:center;color:var(--ink);margin:8px 0}.chk input{width:22px;height:22px;accent-color:var(--acc)}
 summary{cursor:pointer;font-weight:600;padding:2px 0}
+
+/* ---- Estilos do Gráfico de Rosca e Ícones de Categoria ---- */
+.donut-wrap{display:flex;flex-direction:column;align-items:center;gap:14px}
+.donut-box{position:relative;width:190px;height:190px;display:flex;align-items:center;justify-content:center}
+.donut-svg{width:100%;height:100%;transform:rotate(-90deg);overflow:visible}
+.donut-slice{fill:none;stroke-width:26;cursor:pointer;transition:opacity .2s,stroke-width .2s}
+.donut-slice:hover,.donut-slice.active{stroke-width:31}
+.donut-center{position:absolute;text-align:center;pointer-events:none;width:122px;line-height:1.2}
+.donut-center small{display:block;font-size:.76rem;color:var(--mut);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.donut-center b{display:block;font-size:1.05rem;font-variant-numeric:tabular-nums;margin-top:2px}
+.leg-grid{width:100%;display:grid;grid-template-columns:1fr;gap:6px}
+.leg-item{display:flex;align-items:center;justify-content:space-between;padding:7px 10px;border-radius:10px;background:var(--bg);border:1px solid transparent;cursor:pointer;font-size:.88rem;text-align:left;width:100%}
+.leg-item.active{border-color:var(--acc);font-weight:700;box-shadow:0 0 0 1px var(--acc)}
+.leg-left{display:flex;align-items:center;gap:7px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.leg-dot{width:11px;height:11px;border-radius:50%;flex:none}
+.leg-val{font-variant-numeric:tabular-nums;color:var(--mut);font-size:.82rem;margin-left:8px;white-space:nowrap}
+.cat-ico{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex:none}
+.filter-pill{display:flex;align-items:center;justify-content:space-between;background:color-mix(in srgb,var(--acc) 15%,var(--card));border:1px solid var(--acc);border-radius:10px;padding:8px 12px;margin:10px 0;font-size:.88rem}
+.filter-pill button{background:none;border:0;color:var(--acc);font-weight:700;padding:2px 6px}
+
+/* ---- Estilos do Chat Conselheiro Financeiro ---- */
+#dlgChat{width:min(96vw,480px);max-height:88vh;padding:0;overflow:hidden}
+.chat-wrap{display:flex;flex-direction:column;height:min(82vh,640px)}
+.chat-head{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--bg)}
+.chat-head-left{display:flex;align-items:center;gap:10px}
+.adv-avatar{width:38px;height:38px;border-radius:50%;background:var(--acc);color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex:none}
+.chat-head h3{margin:0;font-size:1rem}
+.chat-head small{color:var(--mut);font-size:.76rem;display:block}
+.icon-btn{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.85rem;font-weight:600}
+.chat-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.msg-bub{max-width:88%;padding:10px 13px;border-radius:14px;font-size:.92rem;line-height:1.45;word-wrap:break-word}
+.msg-adv{align-self:flex-start;background:var(--bg);border:1px solid var(--line);border-bottom-left-radius:4px}
+.msg-usr{align-self:flex-end;background:var(--acc);color:var(--bg);border-bottom-right-radius:4px;font-weight:500}
+.msg-adv ul{margin:6px 0 2px;padding-left:18px}
+.msg-adv li{margin-bottom:4px}
+.chat-chips{display:flex;gap:6px;overflow-x:auto;padding:8px 12px;border-top:1px solid var(--line);background:var(--card);scrollbar-width:none}
+.chat-chips::-webkit-scrollbar{display:none}
+.chip-q{flex:none;background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:6px 11px;font-size:.78rem;font-weight:600;white-space:nowrap}
+.chip-q:active{background:var(--acc);color:var(--bg)}
+.chat-foot{display:flex;gap:6px;padding:10px 12px;border-top:1px solid var(--line);background:var(--bg)}
+.chat-foot input{flex:1;margin:0}
 </style>
 </head>
 <body>
@@ -72,7 +114,7 @@ summary{cursor:pointer;font-weight:600;padding:2px 0}
   <div id="cats"></div>
   <section class="sum" id="metaBox"></section>
 
-  <h2>Recebimentos</h2>
+  <h2>Recebimentos (opcional)</h2>
   <div id="recebs"></div>
   <div class="inc">
     <input type="text" id="rNome" placeholder="Ex.: Salário" aria-label="Descrição do recebimento">
@@ -93,13 +135,16 @@ summary{cursor:pointer;font-weight:600;padding:2px 0}
   <p class="hint" id="bMsg">Exporte de vez em quando e guarde o arquivo (ex.: no Google Drive).</p>
 </main>
 
+<button class="fab-adv" id="btnConselheiro" aria-label="Abrir Conselheiro Financeiro">💼 Conselheiro</button>
 <button class="fab" id="novo">+ Nova conta</button>
 
+<!-- MODAL: NOVA / EDITAR CONTA -->
 <dialog id="dlg">
   <form id="form" novalidate>
     <h3 id="dlgTitulo" style="margin:0">Nova conta</h3>
     <label for="fNome">Nome</label>
-    <input type="text" id="fNome" required placeholder="Ex.: Cartão Itaú">
+    <input type="text" id="fNome" required placeholder="Ex.: Cartão Itaú, Vivo, Aluguel...">
+    <p class="hint" id="catSugHint" style="margin:4px 0 0;color:var(--ok);display:none"></p>
     <div class="two">
       <div><label for="fValor">Valor (R$)</label><input type="text" id="fValor" inputmode="decimal" required placeholder="0,00"></div>
       <div><label for="fDia">Dia do vencimento</label><input type="number" id="fDia" min="1" max="31" value="15"></div>
@@ -131,6 +176,7 @@ summary{cursor:pointer;font-weight:600;padding:2px 0}
   </form>
 </dialog>
 
+<!-- MODAL: RECEBIMENTO FIXO -->
 <dialog id="dlgR">
   <h3 style="margin:0">Recebimento fixo</h3>
   <label for="eNome">Descrição</label><input type="text" id="eNome">
@@ -138,6 +184,8 @@ summary{cursor:pointer;font-weight:600;padding:2px 0}
   <p class="hint" id="eHint"></p>
   <div class="btns" style="flex-wrap:wrap"><button type="button" id="eCan">Cancelar</button><button type="button" class="del" id="eDel">Remover daqui pra frente</button><button type="button" class="save" id="eSave">Salvar daqui pra frente</button></div>
 </dialog>
+
+<!-- MODAL: META DE POUPANÇA -->
 <dialog id="dlgM">
   <h3 style="margin:0">Meta de poupança</h3>
   <label for="mNome">Nome da meta</label><input type="text" id="mNome">
@@ -152,11 +200,77 @@ summary{cursor:pointer;font-weight:600;padding:2px 0}
   <p class="hint neg" id="mMsg" role="alert"></p>
   <div id="xLista"></div>
 </dialog>
+
+<!-- MODAL: CHAT CONSELHEIRO FINANCEIRO (100% LOCAL) -->
+<dialog id="dlgChat">
+  <div class="chat-wrap">
+    <div class="chat-head">
+      <div class="chat-head-left">
+        <div class="adv-avatar">💼</div>
+        <div>
+          <h3>Conselheiro Financeiro</h3>
+          <small>Análise das suas contas de <span id="advMesNome"></span></small>
+        </div>
+      </div>
+      <button type="button" class="icon-btn" id="btnFecharChat">✕</button>
+    </div>
+
+    <div class="chat-msgs" id="chatMsgs"></div>
+
+    <div class="chat-chips">
+      <button type="button" class="chip-q" data-q="Diagnóstico completo do meu mês">📊 Diagnóstico do mês</button>
+      <button type="button" class="chip-q" data-q="Qual dívida ou conta devo priorizar primeiro?">🎯 O que priorizar?</button>
+      <button type="button" class="chip-q" data-q="Onde consigo cortar gastos neste mês?">✂️ Onde cortar gastos?</button>
+      <button type="button" class="chip-q" data-q="Vale a pena antecipar minhas contas parceladas?">💳 Análise de parcelas</button>
+      <button type="button" class="chip-q" data-q="Quanto posso gastar com lazer sem ficar no vermelho?">🎮 Limite para lazer</button>
+      <button type="button" class="chip-q" data-q="Como alcançar minha meta de poupança mais rápido?">🐷 Meta e reserva</button>
+    </div>
+
+    <form class="chat-foot" id="formChat">
+      <input type="text" id="chatInput" placeholder="Pergunte sobre prioridades, parcelas, lazer..." autocomplete="off">
+      <button type="submit" class="add">Enviar</button>
+    </form>
+  </div>
+</dialog>
+
 <script>
 const KEY = 'contas-do-mes-v1';
 let db = load();
 let mes = hoje();            // 'AAAA-MM'
 let editId = null, semSalvar = false;
+let catFiltro = null;
+let catManual = false;
+
+/* ---- Configuração Visual e Inteligente das Categorias ---- */
+const CAT_META = {
+  'Moradia':          { ico: '🏠', cor: '#e67e22', kw: ['aluguel','condominio','condomínio','iptu','gas','gás','reforma','casa','moradia','apto','apartamento'] },
+  'Transporte':       { ico: '🚗', cor: '#3b82f6', kw: ['uber','99','bilhete','metro','metrô','cptm','onibus','ônibus','gasolina','combustivel','combustível','ipiranga','estacionamento','pedagio','pedágio','transporte'] },
+  'Alimentação':      { ico: '🍽️', cor: '#10b981', kw: ['ifood','mercado','supermercado','padaria','restaurante','lanche','acougue','açougue','feira','cafe','café','alimentacao','alimentação','pizza','burger'] },
+  'Lazer':            { ico: '🎮', cor: '#a855f7', kw: ['psn','playstation','ps5','steam','nintendo','switch','jogo','game','cinema','show','festa','festival','ingresso','sympla','zig','blacktag','viagem','airbnb','bar','lazer'] },
+  'Faculdade':        { ico: '🎓', cor: '#06b6d4', kw: ['faculdade','universidade','cruzeiro','mensalidade','curso','livro','xerox','apostila','pos','pós','mba','estudo'] },
+  'Cartão de crédito':{ ico: '💳', cor: '#ef4444', kw: ['itau','itaú','nubank','bradesco','santander','inter','c6','cartao','cartão','fatura','mastercard','visa','xp','picpay','mercadopago'] },
+  'Contas':           { ico: '📱', cor: '#ec4899', kw: ['vivo','claro','tim','oi','luz','enel','energia','agua','água','sabesp','internet','fibra','telefone','celular','netflix','spotify','amazon','kindle','streaming'] },
+  'Poupança':         { ico: '🐷', cor: '#14b8a6', kw: ['poupanca','poupança','reserva','meta','investimento'] },
+  'Outros':           { ico: '📌', cor: '#64748b', kw: [] }
+};
+const EXTRA_COLORS = ['#8b5cf6','#f43f5e','#84cc16','#0ea5e9','#d97706'];
+
+function getCatMeta(c){
+  if (!c) return { nome:'Sem categoria', ico:'📄', cor:'#94a3b8' };
+  const k = Object.keys(CAT_META).find(x=>x.toLowerCase()===c.toLowerCase());
+  if (k) return { nome:k, ...CAT_META[k] };
+  let h = 0; for(let i=0;i<c.length;i++) h = (h*31 + c.charCodeAt(i)) % EXTRA_COLORS.length;
+  return { nome:c, ico:'🏷️', cor:EXTRA_COLORS[h] };
+}
+
+function sugerirCategoriaPorNome(texto){
+  const limpo = String(texto||'').toLowerCase().trim();
+  if (!limpo) return null;
+  for (const [nomeCat, info] of Object.entries(CAT_META)){
+    if (info.kw && info.kw.some(w => limpo.includes(w))) return nomeCat;
+  }
+  return null;
+}
 
 function norm(d){ d=d&&typeof d==='object'?d:{}; d.itens=Array.isArray(d.itens)?d.itens:[]; d.receb=d.receb&&typeof d.receb==='object'?d.receb:{};
   d.recFixos=Array.isArray(d.recFixos)?d.recFixos:[]; d.cats=Array.isArray(d.cats)?d.cats.filter(c=>typeof c==='string'):[]; d.meta=d.meta&&typeof d.meta==='object'?d.meta:null;
@@ -166,9 +280,8 @@ function save(){ try{ localStorage.setItem(KEY, JSON.stringify(db)) }catch(e){ s
 function hoje(){ const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0') }
 const $ = id => document.getElementById(id);
 const brl = n => n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
-const esc = s => s.replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const esc = s => String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
-// "1.234,56" ou "42,5" ou "42.5" -> número
 function num(s){
   s = String(s).replace(/[R$\s]/g,'');
   if (s.includes(',')) s = s.replace(/\./g,'').replace(',','.');
@@ -178,11 +291,6 @@ const idx = m => { const [a,b]=m.split('-').map(Number); return a*12+b-1 };
 function addMes(m,k){ const i=idx(m)+k; return Math.floor(i/12)+'-'+String(i%12+1).padStart(2,'0') }
 function nomeMes(m){ const [a,b]=m.split('-').map(Number); return new Date(a,b-1,1).toLocaleDateString('pt-BR',{month:'long',year:'numeric'}) }
 
-/* CÁLCULO DAS PARCELAS
-   Ao cadastrar, o usuário informa o mês inicial, o total e quantas já foram pagas ANTES dele.
-   Parcela do mês M  = pagasAntes + (M - mêsInicial) + 1
-   Faltam depois     = total - parcela do mês
-   Se a parcela > total, a conta já acabou e não aparece mais. */
 function infoNoMes(it, m){
   const d = idx(m) - idx(it.mes);
   if (it.tipo === 'unica') return d === 0 ? {} : null;
@@ -194,7 +302,7 @@ function infoNoMes(it, m){
 const itensDoMes = m => { const l=db.itens.map(it=>({it,info:infoNoMes(it,m)})).filter(x=>x.info);
   const mi=metaItem(m); if(mi) l.push({it:mi,info:{}}); return l.sort((a,b)=>a.it.dia-b.it.dia) };
 
-const HUES=[215,330,150,28,275,180,0,48,250,20,130,195]; // jan..dez
+const HUES=[215,330,150,28,275,180,0,48,250,20,130,195];
 function render(){
   document.documentElement.style.setProperty('--h', HUES[+mes.split('-')[1]-1]);
   $('mesTitulo').textContent = nomeMes(mes);
@@ -206,41 +314,62 @@ function render(){
   const saldo = recebido - total, saldoCaixa = recebido - pago;
   const pct = total ? Math.round(pago/total*100) : 0;
 
+  // Só exibe as linhas de saldo se o usuário tiver cadastrado algum recebimento no mês
+  const blocoSaldo = recebido > 0 ? `
+    <div class="row"><span>Recebido no mês</span><b>${brl(recebido)}</b></div>
+    <div class="row big"><span>Saldo após todas as contas</span><b class="${saldo<0?'neg':'pos'}">${brl(saldo)}</b></div>
+    <div class="row"><span>Disponível agora (recebido − pago)</span><b class="${saldoCaixa<0?'neg':''}">${brl(saldoCaixa)}</b></div>
+  ` : '';
+
   $('resumo').innerHTML = (semSalvar?'<p class="hint neg">Este navegador bloqueou o salvamento: os dados somem ao fechar. Abra o arquivo direto no Chrome.</p>':'') + `
     <div class="row"><span>Total a pagar</span><b>${brl(total)}</b></div>${cmpTxt(total)}
     <div class="row"><span>Já pago</span><b class="pos">${brl(pago)}</b></div>
     <div class="row"><span>Falta pagar</span><b>${brl(total-pago)}</b></div>
     <div class="bar" aria-hidden="true"><i style="width:${pct}%"></i></div>
-    <div class="row"><span>Recebido no mês</span><b>${brl(recebido)}</b></div>
-    <div class="row big"><span>Saldo após todas as contas</span><b class="${saldo<0?'neg':'pos'}">${brl(saldo)}</b></div>
-    <div class="row"><span>Disponível agora (recebido − pago)</span><b class="${saldoCaixa<0?'neg':''}">${brl(saldoCaixa)}</b></div>`;
+    ${blocoSaldo}`;
 
   $('recebs').innerHTML = recs.map(r=> r.fixo
     ? `<div class="item"><button class="t" data-f="${r.id}"><span class="n">${esc(r.nome)}</span><small><span class="tag">fixo</span>toque para editar</small></button><span class="v pos">${brl(r.valor)}</span></div>`
     : `<div class="item"><span class="t"><span class="n">${esc(r.nome)}</span></span><span class="v pos">${brl(r.valor)}</span><button class="x" data-r="${r.i}" aria-label="Remover recebimento">×</button></div>`).join('')
-    || '<div class="empty">Nenhum recebimento neste mês.</div>';
+    || '<div class="empty">Nenhum recebimento cadastrado (opcional).</div>';
+
+  const listaVisivel = catFiltro
+    ? lista.filter(({it}) => (it.cat||'Sem categoria').toLowerCase() === catFiltro.toLowerCase())
+    : lista;
 
   let html = '';
-  if (!lista.length) html += '<h2>Contas do mês</h2><div class="empty">Nenhuma conta neste mês. Toque em “+ Nova conta”.</div>';
+  if (catFiltro){
+    const cm = getCatMeta(catFiltro==='Sem categoria'?'':catFiltro);
+    html += `<div class="filter-pill"><span>Filtrando: <b>${cm.ico} ${esc(cm.nome)}</b></span><button type="button" id="limparFiltro">Mostrar todas ✕</button></div>`;
+  }
+
+  if (!listaVisivel.length){
+    html += '<h2>Contas do mês</h2><div class="empty">'+(catFiltro?'Nenhuma conta nesta categoria neste mês.':'Nenhuma conta neste mês. Toque em “+ Nova conta”.')+'</div>';
+  }
   let ult = null;
-  html += lista.map(({it,info})=>{
+  html += listaVisivel.map(({it,info})=>{
     const cab = it.dia!==ult ? `<h2>Vence dia ${it.dia}</h2>` : ''; ult = it.dia;
     const ok = !!(it.pagos||{})[mes];
+    const cm = getCatMeta(it.cat);
     let tags = `<span class="tag">dia ${it.dia}</span>`;
-    if (it.cat) tags += `<span class="tag">${esc(it.cat)}</span>`;
+    if (it.cat) tags += `<span class="tag" style="background:${cm.cor}26;color:var(--ink);border:1px solid ${cm.cor}66">${cm.ico} ${esc(it.cat)}</span>`;
     if (it.tipo==='fixa') tags += '<span class="tag">fixa</span>';
     if (it.tipo==='parcelada') tags += `<span class="tag">parcela ${info.atual}/${it.total}</span><span class="tag">${info.faltam===0?'última parcela':'faltam '+info.faltam}</span>`;
-    return cab + `<div class="item ${ok?'done':''} ${ok?'':alertaCls(it)}">
+    return cab + `<div class="item ${ok?'done':''} ${ok?'':alertaCls(it)}" style="border-left:5px solid ${cm.cor}">
       <input type="checkbox" data-p="${it.id}" ${ok?'checked':''} aria-label="Marcar ${esc(it.nome)} como pago">
+      <div class="cat-ico" style="background:${cm.cor}22;border:1px solid ${cm.cor}55" aria-hidden="true">${cm.ico}</div>
       <button class="t" data-e="${it.id}"><span class="n">${esc(it.nome)}</span><small>${tags}</small></button>
       <span class="v">${brl(it.valor)}</span></div>`;
   }).join('');
-  $('lista').innerHTML = html; renderExtras(lista);
+  $('lista').innerHTML = html;
+  if ($('limparFiltro')) $('limparFiltro').onclick = ()=>{ catFiltro=null; render(); };
+
+  renderExtras(lista);
 }
 
 /* eventos */
-$('prev').onclick = ()=>{ mes=addMes(mes,-1); render() };
-$('next').onclick = ()=>{ mes=addMes(mes,1); render() };
+$('prev').onclick = ()=>{ mes=addMes(mes,-1); catFiltro=null; render() };
+$('next').onclick = ()=>{ mes=addMes(mes,1); catFiltro=null; render() };
 
 $('lista').addEventListener('change', e=>{
   const id = e.target.dataset.p; if(!id) return;
@@ -276,9 +405,29 @@ function hint(){
 $('fTipo').onchange = ()=>{ $('parcBox').hidden = $('fTipo').value!=='parcelada'; hint() };
 $('fTotal').oninput = $('fPagas').oninput = hint;
 
+$('fNome').addEventListener('input', ()=>{
+  if (catManual && $('fCat').value) return;
+  const sug = sugerirCategoriaPorNome($('fNome').value);
+  const hintEl = $('catSugHint');
+  if (sug){
+    fillCats(sug);
+    const cm = getCatMeta(sug);
+    hintEl.textContent = `Sugestão automática: ${cm.ico} ${sug}`;
+    hintEl.style.display = 'block';
+  } else {
+    hintEl.style.display = 'none';
+  }
+});
+$('fCat').addEventListener('change', ()=>{
+  catManual = true;
+  $('catSugHint').style.display = 'none';
+});
+
 function abrir(id){
   editId = id || null;
   const it = id ? db.itens.find(x=>x.id===id) : null;
+  catManual = !!(it && it.cat);
+  $('catSugHint').style.display = 'none';
   $('dlgTitulo').textContent = it ? 'Editar conta' : 'Nova conta';
   $('fNome').value = it ? it.nome : '';
   $('fValor').value = it ? String(it.valor).replace('.',',') : '';
@@ -303,10 +452,12 @@ function salvar(){
   if (!num($('fValor').value)) return msg('Informe o valor da conta.');
   if (!$('fMes').value) return msg('Informe o mês de vencimento.');
   if (tipo==='parcelada' && (total<2 || pagas<0 || pagas>=total)) return msg('Confira as parcelas: as já pagas devem ser menores que o total.');
+  let catEscolhida = $('fCat').value;
+  if (!catEscolhida) catEscolhida = sugerirCategoriaPorNome($('fNome').value) || '';
   const dados = {
     nome:$('fNome').value.trim(), valor:num($('fValor').value),
     dia:Math.min(31,Math.max(1,+$('fDia').value||1)), mes:$('fMes').value, tipo,
-    cat: $('fCat').value, total: tipo==='parcelada'?total:0, pagasAntes: tipo==='parcelada'?pagas:0
+    cat: catEscolhida, total: tipo==='parcelada'?total:0, pagasAntes: tipo==='parcelada'?pagas:0
   };
   if (editId){ Object.assign(db.itens.find(x=>x.id===editId), dados) }
   else db.itens.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6), pagos:{}, ...dados});
@@ -320,16 +471,20 @@ $('excluir').onclick = ()=>{
 };
 
 /* ---- categorias ---- */
-const CATS=['Contas','Cartão de crédito','Faculdade','Moradia','Transporte','Alimentação','Lazer','Outros'];
+const CATS=['Moradia','Transporte','Alimentação','Lazer','Faculdade','Cartão de crédito','Contas','Outros'];
 function fillCats(cur){
   const l=[]; [...CATS,...db.cats,...db.itens.map(i=>i.cat),cur].forEach(c=>{ if(c && !l.some(x=>x.toLowerCase()===c.toLowerCase())) l.push(c); });
-  $('fCat').innerHTML='<option value="">Sem categoria</option>'+l.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join('');
-  $('fCat').value=cur||'';
+  $('fCat').innerHTML='<option value="">Sem categoria</option>'+l.map(c=>{
+    const cm = getCatMeta(c);
+    return `<option value="${esc(c)}">${cm.ico} ${esc(c)}</option>`;
+  }).join('');
+  const match = l.find(x=>cur && x.toLowerCase()===cur.toLowerCase());
+  $('fCat').value = match || cur || '';
 }
 $('fCatAdd').onclick=()=>{
   const c=$('fCatNova').value.trim(); if(!c) return $('fCatNova').focus();
   const ex=[...CATS,...db.cats].find(x=>x.toLowerCase()===c.toLowerCase());
-  if(!ex) db.cats.push(c); save(); fillCats(ex||c); $('fCatNova').value='';
+  if(!ex) db.cats.push(c); save(); fillCats(ex||c); $('fCatNova').value=''; catManual=true;
 };
 
 /* ---- recebimentos fixos ---- */
@@ -341,146 +496,440 @@ function recsDoMes(m){
 let editF=null;
 $('recebs').addEventListener('click', e=>{
   const b=e.target.closest('[data-f]'); if(!b) return;
-  editF=b.dataset.f; const f=db.recFixos.find(x=>x.id===editF);
+  editF=b.dataset.f; const f=db.recFixos.find(x=>x.id===editF); if(!f) return;
   $('eNome').value=f.nome; $('eVal').value=String(f.valor).replace('.',',');
-  $('eHint').textContent='Vale a partir de '+nomeMes(mes)+'. Meses anteriores não mudam.'; $('dlgR').showModal();
+  $('eHint').textContent=`Vale a partir de ${nomeMes(mes)}. Meses anteriores não mudam.`;
+  $('dlgR').showModal();
 });
 $('eCan').onclick=()=>$('dlgR').close();
-$('eSave').onclick=()=>{
-  const v=num($('eVal').value); if(!v) return $('eVal').focus();
-  const f=db.recFixos.find(x=>x.id===editF), nome=$('eNome').value.trim()||f.nome;
-  if (f.de===mes){ f.nome=nome; f.valor=v; }
-  else { const ate=f.ate; f.ate=addMes(mes,-1); db.recFixos.push({id:Date.now().toString(36),nome,valor:v,de:mes,ate}); }
-  save(); $('dlgR').close(); render();
-};
 $('eDel').onclick=()=>{
   const f=db.recFixos.find(x=>x.id===editF);
-  if (f.de===mes) db.recFixos=db.recFixos.filter(x=>x!==f); else f.ate=addMes(mes,-1);
+  if(f){ if(f.de>=mes) db.recFixos=db.recFixos.filter(x=>x.id!==editF); else f.ate=addMes(mes,-1); }
+  save(); $('dlgR').close(); render();
+};
+$('eSave').onclick=()=>{
+  const f=db.recFixos.find(x=>x.id===editF), v=num($('eVal').value), nome=$('eNome').value.trim()||'Recebimento';
+  if(!f||!v) return;
+  if(f.de>=mes){ f.nome=nome; f.valor=v; }
+  else { f.ate=addMes(mes,-1); db.recFixos.push({id:Date.now().toString(36),nome,valor:v,de:mes,ate:null}); }
   save(); $('dlgR').close(); render();
 };
 
 /* ---- meta de poupança ---- */
-function metaInfo(){
-  const M=db.meta; if(!M) return null;
-  const pagosN=Object.keys(M.pagos).filter(k=>k>=M.inicio).length;
-  const todos=M.extras.reduce((s,x)=>s+x.valor,0);
-  const reais=M.extras.filter(x=>x.mes<=hoje()).reduce((s,x)=>s+x.valor,0);
-  const guardado=pagosN*M.mensal+reais, rem=M.alvo-(pagosN*M.mensal+todos);
-  let fu=M.inicio; while(M.pagos[fu]) fu=addMes(fu,1);
-  const n=rem>0?Math.ceil(rem/M.mensal-1e-9):0;
-  return {M,guardado,rem,n,fu,fim:n>0?addMes(fu,n-1):null,done:guardado>=M.alvo,pct:Math.min(100,Math.round(guardado/M.alvo*100))};
-}
 function metaItem(m){
-  const I=metaInfo(); if(!I||m<I.M.inicio) return null;
-  const pago=!!I.M.pagos[m];
-  if(!pago && !(I.fim && m>=I.fu && m<=I.fim)) return null;
-  const v=(!pago&&m===I.fim)?Math.round((I.rem-(I.n-1)*I.M.mensal)*100)/100:I.M.mensal;
-  return {id:'__meta',nome:'Guardar: '+I.M.nome,valor:v,dia:I.M.dia||30,tipo:'meta',cat:'Poupança',pagos:I.M.pagos};
+  const mt=db.meta; if(!mt||!mt.mensal||m<mt.inicio) return null;
+  return {id:'__meta',nome:`🐷 Meta: ${mt.nome||'Poupança'}`,valor:mt.mensal,dia:mt.dia||5,cat:'Poupança',tipo:'fixa',pagos:mt.pagos};
 }
-function xList(){
-  const x=db.meta?db.meta.extras:[];
-  $('xLista').innerHTML=x.map((e,i)=>`<div class="item"><span class="t"><span class="n">${esc(e.nome)}</span><small>${nomeMes(e.mes)}</small></span><span class="v pos">${brl(e.valor)}</span><button class="x" data-x="${i}" aria-label="Remover aporte">×</button></div>`).join('');
+function renderMeta(){
+  const mt=db.meta;
+  if(!mt){ $('metaBox').innerHTML=`<div class="row"><span>🐷 Meta de poupança</span><button class="add" id="mCriar" style="padding:6px 12px">Definir meta</button></div>`; $('mCriar').onclick=abrirMeta; return; }
+  const mesesPagos=Object.keys(mt.pagos||{}).filter(k=>mt.pagos[k]).length;
+  const extras=(mt.extras||[]).reduce((s,x)=>s+x.valor,0);
+  const guardado=mesesPagos*(mt.mensal||0)+extras;
+  const falta=Math.max(0,(mt.alvo||0)-guardado);
+  const pct=mt.alvo?Math.min(100,Math.round(guardado/mt.alvo*100)):0;
+  const mesesRest=mt.mensal?Math.ceil(falta/mt.mensal):0;
+  $('metaBox').innerHTML=`
+    <div class="row"><span>🐷 <b>${esc(mt.nome||'Meta')}</b></span><button class="add" id="mEdit" style="padding:4px 10px;font-size:.82rem">Editar</button></div>
+    <div class="row"><span>Guardado</span><b class="pos">${brl(guardado)} de ${brl(mt.alvo||0)} (${pct}%)</b></div>
+    <div class="bar"><i style="width:${pct}%"></i></div>
+    <div class="row"><small style="color:var(--mut)">${falta<=0?'🎉 Meta atingida!':`Faltam ${brl(falta)} (~${mesesRest} ${mesesRest===1?'mês':'meses'} guardando ${brl(mt.mensal)}/mês)`}</small></div>`;
+  $('mEdit').onclick=abrirMeta;
 }
 function abrirMeta(){
-  const M=db.meta;
-  $('mNome').value=M?M.nome:'Mudança'; $('mAlvo').value=M?String(M.alvo).replace('.',','):'';
-  $('mMensal').value=M?String(M.mensal).replace('.',','):'350'; $('mInicio').value=M?M.inicio:mes;
-  $('xMes').value=mes; $('xNome').value=''; $('xVal').value=''; $('mMsg').textContent='';
-  $('mDel').hidden=!M; $('mDel').dataset.sure=''; $('mDel').textContent='Excluir meta'; xList(); $('dlgM').showModal();
+  const mt=db.meta||{};
+  $('mNome').value=mt.nome||''; $('mAlvo').value=mt.alvo?String(mt.alvo).replace('.',','):'';
+  $('mMensal').value=mt.mensal?String(mt.mensal).replace('.',','):''; $('mInicio').value=mt.inicio||mes;
+  $('xNome').value=''; $('xVal').value=''; $('xMes').value=mes; $('mMsg').textContent='';
+  $('mDel').hidden=!db.meta; renderExtrasMeta(); $('dlgM').showModal();
+}
+function renderExtrasMeta(){
+  const ex=(db.meta&&db.meta.extras)||[];
+  $('xLista').innerHTML=ex.map((x,i)=>`<div class="item" style="margin-top:6px"><span class="t"><span class="n">${esc(x.nome)}</span><small>${nomeMes(x.mes)}</small></span><span class="v pos">${brl(x.valor)}</span><button type="button" class="x" data-x="${i}">×</button></div>`).join('');
 }
 $('mCan').onclick=()=>$('dlgM').close();
 $('mSave').onclick=()=>{
-  const alvo=num($('mAlvo').value), mensal=num($('mMensal').value), inicio=$('mInicio').value;
-  if(!alvo||!mensal||!inicio) return $('mMsg').textContent='Preencha valor-alvo, valor por mês e mês inicial.';
-  db.meta=Object.assign(db.meta||{pagos:{},extras:[]},{nome:$('mNome').value.trim()||'Meta',alvo,mensal,inicio});
+  const alvo=num($('mAlvo').value), mensal=num($('mMensal').value);
+  if(!alvo||!mensal){ $('mMsg').textContent='Informe o valor-alvo e quanto guardar por mês.'; return; }
+  db.meta=Object.assign(db.meta||{pagos:{},extras:[]},{nome:$('mNome').value.trim()||'Poupança',alvo,mensal,inicio:$('mInicio').value||mes});
   save(); $('dlgM').close(); render();
 };
-$('mDel').onclick=()=>{
-  if(!$('mDel').dataset.sure){ $('mDel').dataset.sure='1'; $('mDel').textContent='Toque de novo para excluir'; return; }
-  db.meta=null; save(); $('dlgM').close(); render();
-};
+$('mDel').onclick=()=>{ db.meta=null; save(); $('dlgM').close(); render(); };
 $('xAdd').onclick=()=>{
-  if(!db.meta) return $('mMsg').textContent='Salve a meta antes de incluir um aporte.';
-  const v=num($('xVal').value); if(!v||!$('xMes').value) return $('mMsg').textContent='Informe o valor e o mês do aporte.';
-  db.meta.extras.push({nome:$('xNome').value.trim()||'Aporte extra',valor:v,mes:$('xMes').value});
-  $('xNome').value=''; $('xVal').value=''; $('mMsg').textContent=''; save(); xList(); render();
+  const v=num($('xVal').value); if(!v) return;
+  if(!db.meta) db.meta={nome:$('mNome').value.trim()||'Poupança',alvo:num($('mAlvo').value)||v,mensal:num($('mMensal').value)||0,inicio:$('mInicio').value||mes,pagos:{},extras:[]};
+  db.meta.extras.push({nome:$('xNome').value.trim()||'Aporte extra',valor:v,mes:$('xMes').value||mes});
+  $('xNome').value=''; $('xVal').value=''; save(); renderExtrasMeta(); render();
 };
-$('xLista').onclick=e=>{ const i=e.target.dataset.x; if(i===undefined) return; db.meta.extras.splice(i,1); save(); xList(); render(); };
-$('metaBox').onclick=e=>{ if(e.target.id==='mAbrir') abrirMeta(); };
+$('xLista').addEventListener('click',e=>{
+  const i=e.target.dataset.x; if(i===undefined) return;
+  db.meta.extras.splice(+i,1); save(); renderExtrasMeta(); render();
+});
 
-/* ---- alertas, categorias, comparação, ano ---- */
+/* ---- Comparativo, Alertas, Gráfico de Rosca Interativo e Resumo Anual ---- */
+function cmpTxt(total){
+  const ant = itensDoMes(addMes(mes,-1)).reduce((s,x)=>s+x.it.valor,0);
+  if (!ant || !total) return '';
+  const dif = total - ant;
+  if (Math.abs(dif) < 0.01) return `<div class="row"><small style="color:var(--mut)">Igual ao mês passado</small></div>`;
+  return `<div class="row"><small style="color:var(--mut)">${dif>0?'▲ '+brl(dif)+' a mais':'▼ '+brl(-dif)+' a menos'} que no mês passado</small></div>`;
+}
+
 function alertaCls(it){
-  if (mes!==hoje()) return '';
-  const d=new Date().getDate();
-  return it.dia<d ? 'late' : (it.dia-d<=3 ? 'soon' : '');
+  const hj = hoje(); if (mes !== hj) return '';
+  const diaHj = new Date().getDate();
+  if (it.dia < diaHj) return 'late';
+  if (it.dia - diaHj <= 3) return 'soon';
+  return '';
 }
-function calc(m){
-  const l=itensDoMes(m), total=l.reduce((s,x)=>s+x.it.valor,0), rec=recsDoMes(m).reduce((s,x)=>s+x.valor,0);
-  return {total,rec,saldo:rec-total};
-}
-function cmpTxt(t){
-  const pm=addMes(mes,-1), p=calc(pm).total; if(!p) return '';
-  const d=Math.round((t-p)*100)/100, n=nomeMes(pm).split(' ')[0];
-  return '<div class="hint">'+(d===0?'Igual a '+n:brl(Math.abs(d))+(d>0?' a mais':' a menos')+' que em '+n)+'</div>';
-}
-const INI=['J','F','M','A','M','J','J','A','S','O','N','D'];
-function renderExtras(lista){
-  let late=0,soon=0;
-  lista.forEach(({it})=>{ if((it.pagos||{})[mes]) return; const c=alertaCls(it); if(c==='late') late++; else if(c==='soon') soon++; });
-  $('alerta').innerHTML=(late||soon)?`<div class="alerta ${late?'r':''}">${late?'⚠ '+late+' conta(s) vencida(s)':''}${late&&soon?' · ':''}${soon?soon+' vence(m) em até 3 dias':''}</div>`:'';
-  let bk=''; try{ bk=localStorage.getItem(KEY+'-bk')||'' }catch(e){}
-  $('lembrete').innerHTML=(db.itens.length&&bk!==hoje())?'<div class="alerta">📦 Mês novo: faça um backup dos seus dados. <button class="add" id="lbBk">Exportar agora</button></div>':'';
-  const cm={}; lista.forEach(({it})=>{ const c=it.cat||'Sem categoria'; cm[c]=(cm[c]||0)+it.valor; });
-  const ce=Object.entries(cm).sort((a,b)=>b[1]-a[1]);
-  $('cats').innerHTML=ce.length?`<details class="sum"><summary>Total por categoria</summary>${ce.map(([c,v])=>`<div class="row"><span>${esc(c)}</span><b>${brl(v)}</b></div>`).join('')}</details>`:'';
-  const I=metaInfo();
-  $('metaBox').innerHTML=!I?'<button class="add" id="mAbrir" style="width:100%">Criar meta de poupança</button>':
-   `<div class="row"><b>${esc(I.M.nome)}</b><b>${I.pct}%</b></div><div class="bar"><i style="width:${I.pct}%"></i></div>
-    <div class="row"><span>Guardado</span><b class="pos">${brl(I.guardado)}</b></div>
-    <div class="row"><span>Meta</span><b>${brl(I.M.alvo)}</b></div>
-    <div class="row"><span>Previsão</span><b>${I.fim?nomeMes(I.fim):(I.done?'Meta atingida 🎉':'Coberta pelos aportes')}</b></div>
-    <div class="btns"><button type="button" id="mAbrir">Editar meta / aporte extra</button></div>`;
-  const ano=mes.slice(0,4), v=[]; let g='', tot=0;
-  for(let k=1;k<=12;k++) v.push(calc(ano+'-'+String(k).padStart(2,'0')).saldo);
-  const mx=Math.max(1,...v.map(Math.abs)), z=56, h=48;
-  v.forEach((x,k)=>{ tot+=x; const bh=Math.abs(x)/mx*h, cur=(ano+'-'+String(k+1).padStart(2,'0'))===mes;
-    g+=`<rect x="${k*30+6}" y="${x>=0?z-bh:z}" width="18" height="${bh}" rx="3" style="fill:${x<0?'var(--bad)':'var(--ok)'}" opacity="${cur?1:.55}"/><text x="${k*30+15}" y="${z+h+14}" font-size="10" text-anchor="middle" style="fill:var(--mut)">${INI[k]}</text>`; });
-  $('ano').innerHTML=`<h2>Resumo de ${ano}</h2><div class="sum"><svg viewBox="0 0 360 ${z+h+20}" width="100%" role="img" aria-label="Saldo por mês">${g}<line x1="0" x2="360" y1="${z}" y2="${z}" style="stroke:var(--line)"/></svg><div class="hint">Saldo de cada mês (recebido − contas). Total no ano: <b class="${tot<0?'neg':'pos'}">${brl(tot)}</b></div></div>`;
-}
-$('lembrete').onclick=e=>{ if(e.target.id==='lbBk') $('bExp').click(); };
 
-/* backup */
-let pend = null;
-function bmsg(t, btn){ $('bMsg').innerHTML = esc(t) + (btn ? ' <button class="add" id="bOk">Substituir meus dados</button>' : ''); }
+function renderDonutCategorias(lista){
+  if (!lista.length){ $('cats').innerHTML=''; return; }
+  const tot = {};
+  let somaTotal = 0;
+  lista.forEach(({it})=>{
+    const c = it.cat || 'Sem categoria';
+    tot[c] = (tot[c]||0) + it.valor;
+    somaTotal += it.valor;
+  });
+  if (!somaTotal){ $('cats').innerHTML=''; return; }
+
+  const entradas = Object.entries(tot).sort((a,b)=>b[1]-a[1]);
+  const r = 74, circ = 2 * Math.PI * r;
+  let acum = 0;
+
+  const fatiasSvg = entradas.map(([catKey, val])=>{
+    const pct = val / somaTotal;
+    const len = pct * circ;
+    const offset = -acum * circ;
+    acum += pct;
+    const cm = getCatMeta(catKey==='Sem categoria'?'':catKey);
+    const ativo = catFiltro && catFiltro.toLowerCase()===catKey.toLowerCase();
+    const opaco = catFiltro && !ativo ? 'opacity:.28' : '';
+    return `<circle class="donut-slice ${ativo?'active':''}" data-cat="${esc(catKey)}" cx="100" cy="100" r="${r}" stroke="${cm.cor}" stroke-dasharray="${len} ${circ}" stroke-dashoffset="${offset}" style="${opaco}"/>`;
+  }).join('');
+
+  const itensLegenda = entradas.map(([catKey, val])=>{
+    const pct = Math.round(val / somaTotal * 100);
+    const cm = getCatMeta(catKey==='Sem categoria'?'':catKey);
+    const ativo = catFiltro && catFiltro.toLowerCase()===catKey.toLowerCase();
+    return `<button type="button" class="leg-item ${ativo?'active':''}" data-cat="${esc(catKey)}">
+      <span class="leg-left"><i class="leg-dot" style="background:${cm.cor}"></i><span>${cm.ico} ${esc(cm.nome)}</span></span>
+      <span class="leg-val">${brl(val)} (${pct}%)</span>
+    </button>`;
+  }).join('');
+
+  let centroTitulo = 'Total do mês', centroValor = brl(somaTotal);
+  if (catFiltro){
+    const par = entradas.find(([k])=>k.toLowerCase()===catFiltro.toLowerCase());
+    if (par){
+      const cm = getCatMeta(par[0]==='Sem categoria'?'':par[0]);
+      centroTitulo = `${cm.ico} ${cm.nome}`;
+      centroValor = brl(par[1]);
+    }
+  }
+
+  $('cats').innerHTML = `<section class="sum">
+    <details open>
+      <summary>Gastos por categoria <small style="color:var(--mut);font-weight:400">(toque na fatia para filtrar)</small></summary>
+      <div class="donut-wrap" style="margin-top:12px">
+        <div class="donut-box">
+          <svg class="donut-svg" viewBox="0 0 200 200">${fatiasSvg}</svg>
+          <div class="donut-center">
+            <small>${esc(centroTitulo)}</small>
+            <b>${centroValor}</b>
+          </div>
+        </div>
+        <div class="leg-grid">${itensLegenda}</div>
+      </div>
+    </details>
+  </section>`;
+
+  $('cats').querySelectorAll('[data-cat]').forEach(el=>{
+    el.onclick = ()=>{
+      const clicada = el.dataset.cat;
+      catFiltro = (catFiltro && catFiltro.toLowerCase()===clicada.toLowerCase()) ? null : clicada;
+      render();
+    };
+  });
+}
+
+function renderExtras(lista){
+  renderMeta();
+  renderDonutCategorias(lista);
+
+  const hj = hoje();
+  if (mes === hj){
+    const d = new Date().getDate();
+    const atr = lista.filter(({it})=>!(it.pagos||{})[mes] && it.dia < d);
+    const prx = lista.filter(({it})=>!(it.pagos||{})[mes] && it.dia >= d && it.dia - d <= 3);
+    let a = '';
+    if (atr.length) a += `<div class="alerta r">⚠️ ${atr.length} ${atr.length===1?'conta atrasada':'contas atrasadas'} neste mês!</div>`;
+    if (prx.length) a += `<div class="alerta">⏰ ${prx.length} ${prx.length===1?'conta vence':'contas vencem'} nos próximos 3 dias.</div>`;
+    $('alerta').innerHTML = a;
+  } else $('alerta').innerHTML = '';
+
+  // Resumo anual: só mostra o saldo ao lado se houver recebimento naquele mês
+  const anoAtual = mes.split('-')[0];
+  let rows = '';
+  for (let m=1; m<=12; m++){
+    const mm = `${anoAtual}-${String(m).padStart(2,'0')}`;
+    const t = itensDoMes(mm).reduce((s,x)=>s+x.it.valor,0);
+    const r = recsDoMes(mm).reduce((s,x)=>s+x.valor,0);
+    if (t || r){
+      const infoSaldo = r > 0 ? ` <small class="${r-t<0?'neg':'pos'}">(saldo ${brl(r-t)})</small>` : '';
+      rows += `<div class="row"><span>${nomeMes(mm)}</span><b>${brl(t)}${infoSaldo}</b></div>`;
+    }
+  }
+  $('ano').innerHTML = rows ? `<section class="sum" style="margin-top:16px"><details><summary>Visão de ${anoAtual}</summary><div style="margin-top:8px">${rows}</div></details></section>` : '';
+}
+
+/* ---- Backup Exportar / Importar ---- */
 $('bExp').onclick = ()=>{
-  const blob = new Blob([JSON.stringify({app:'contas-do-mes',versao:2,dados:db})],{type:'application/json'});
-  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
-  a.download = 'contas-backup-'+new Date().toISOString().slice(0,10)+'.json';
-  document.body.appendChild(a); a.click(); a.remove();
-  setTimeout(()=>URL.revokeObjectURL(a.href),2000);
-  bmsg('Backup gerado. Guarde o arquivo baixado em um lugar seguro.');
-  try{ localStorage.setItem(KEY+'-bk',hoje()) }catch(x){} render();
+  const blob = new Blob([JSON.stringify(db,null,2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `contas-backup-${hoje()}.json`;
+  a.click();
+  $('bMsg').textContent = 'Backup exportado com sucesso!';
 };
 $('bImp').onclick = ()=>$('bFile').click();
 $('bFile').onchange = e=>{
   const f = e.target.files[0]; if(!f) return;
-  const rd = new FileReader();
-  rd.onload = ()=>{
-    try{
-      const j = JSON.parse(rd.result), d = j.dados || j;
-      if (!d || !Array.isArray(d.itens) || !d.receb || typeof d.receb!=='object' ||
-          !d.itens.every(i=>i && i.id && typeof i.nome==='string' && typeof i.valor==='number' && /^\d{4}-\d{2}$/.test(i.mes))) throw 0;
-      pend = d; bmsg('Arquivo com '+d.itens.length+' conta(s). Isso substitui o que está no app agora.', true);
-    }catch(x){ pend = null; bmsg('Arquivo inválido. Use um backup gerado por este app.') }
+  const r = new FileReader();
+  r.onload = ev=>{
+    try { db = norm(JSON.parse(ev.target.result)); save(); render(); $('bMsg').textContent='Backup restaurado com sucesso!'; }
+    catch(err){ $('bMsg').textContent='Arquivo inválido.'; }
   };
-  rd.readAsText(f); e.target.value = '';
+  r.readAsText(f);
 };
-$('bMsg').addEventListener('click', e=>{
-  if (e.target.id==='bOk' && pend){ db = norm({itens:pend.itens,receb:pend.receb,recFixos:pend.recFixos,cats:pend.cats,meta:pend.meta}); pend = null; save(); render(); bmsg('Dados importados com sucesso.'); }
+
+/* =========================================================================
+   CONSELHEIRO FINANCEIRO 100% LOCAL E INTELIGENTE
+   ========================================================================= */
+const dlgChat = $('dlgChat');
+
+function coletarRaioXMes(){
+  const lista = itensDoMes(mes);
+  const recs  = recsDoMes(mes);
+  const recebido = recs.reduce((s,r)=>s+r.valor,0);
+  const total = lista.reduce((s,x)=>s+x.it.valor,0);
+  const pago  = lista.filter(x=>(x.it.pagos||{})[mes]).reduce((s,x)=>s+x.it.valor,0);
+  const falta = total - pago;
+  const saldoProjetado = recebido - total;
+  const disponivelAgora = recebido - pago;
+
+  const pendentes = lista.filter(x=>!(x.it.pagos||{})[mes]).sort((a,b)=>b.it.valor - a.it.valor);
+  const parceladas = lista.filter(x=>x.it.tipo==='parcelada');
+  const hj = hoje();
+  const diaHj = new Date().getDate();
+  const atrasadas = mes===hj ? pendentes.filter(x=>x.it.dia < diaHj) : [];
+  const vencendoLogo = mes===hj ? pendentes.filter(x=>x.it.dia >= diaHj && x.it.dia - diaHj <= 3) : [];
+
+  const porCat = {};
+  lista.forEach(({it})=>{
+    const c = it.cat || 'Sem categoria';
+    porCat[c] = (porCat[c]||0) + it.valor;
+  });
+  const rankingCats = Object.entries(porCat).sort((a,b)=>b[1]-a[1]);
+
+  const acabamEsteMes = parceladas.filter(x=>x.info.faltam === 0);
+  const alivioProxMes = acabamEsteMes.reduce((s,x)=>s+x.it.valor,0);
+
+  return { lista, recs, recebido, total, pago, falta, saldoProjetado, disponivelAgora, pendentes, parceladas, atrasadas, vencendoLogo, rankingCats, acabamEsteMes, alivioProxMes };
+}
+
+function gerarRespostaConsultorLocal(pergunta){
+  const q = pergunta.toLowerCase().trim();
+  const rx = coletarRaioXMes();
+
+  if (!rx.lista.length && !rx.recebido){
+    return `Ainda não há contas lançadas em <b>${nomeMes(mes)}</b>. Cadastre suas contas para eu traçar um plano de ação personalizado!`;
+  }
+
+  // 1. Verifica se o usuário perguntou pelo nome de alguma conta cadastrada
+  const contaCitada = rx.lista.find(({it}) => it.nome.toLowerCase().length > 2 && q.includes(it.nome.toLowerCase()));
+  if (contaCitada){
+    const {it, info} = contaCitada;
+    const isPago = !!(it.pagos||{})[mes];
+    const pctTotal = rx.total ? Math.round(it.valor / rx.total * 100) : 0;
+    let txt = `<b>🔎 Análise da conta: ${esc(it.nome)}</b><ul>
+      <li><b>Valor:</b> ${brl(it.valor)} (representa <b>${pctTotal}%</b> de todas as suas saídas do mês)</li>
+      <li><b>Vencimento:</b> Dia ${it.dia} (${isPago ? '<span class="pos"><b>Já está paga ✅</b></span>' : '<span class="neg"><b>Ainda pendente ⏳</b></span>'})</li>`;
+    if (it.tipo === 'parcelada'){
+      txt += `<li><b>Progresso:</b> Parcela ${info.atual} de ${it.total} (${info.faltam===0 ? 'última parcela! Acaba neste mês 🎉' : `faltam ${info.faltam} parcelas após este mês, somando ${brl(info.faltam * it.valor)} restantes`}).</li>`;
+    }
+    txt += `</ul>`;
+    return txt;
+  }
+
+  // 2. Pergunta sobre META / POUPANÇA / RESERVA
+  if (q.includes('meta') || q.includes('poupan') || q.includes('reserva') || q.includes('guardar') || q.includes('invest')){
+    if (!db.meta){
+      const sugestao = rx.recebido > 0 && rx.saldoProjetado > 0 ? brl(rx.saldoProjetado * 0.3) : 'um valor fixo mensal';
+      return `<b>🐷 Planejamento de Reserva:</b><br>Você ainda não ativou uma Meta de Poupança no painel principal. Minha recomendação é tocar em <b>"Definir meta"</b> e começar guardando <b>${sugestao}</b> logo no início do mês (assim a meta entra como um compromisso prioritário na sua lista).`;
+    }
+    const mt = db.meta;
+    const mesesPagos = Object.keys(mt.pagos||{}).filter(k=>mt.pagos[k]).length;
+    const extras = (mt.extras||[]).reduce((s,x)=>s+x.valor,0);
+    const guardado = mesesPagos*(mt.mensal||0)+extras;
+    const falta = Math.max(0,(mt.alvo||0)-guardado);
+    const mesesRest = mt.mensal ? Math.ceil(falta/mt.mensal) : 0;
+    return `<b>🐷 Estratégia para sua meta "${esc(mt.nome)}":</b><ul>
+      <li><b>Acumulado até agora:</b> ${brl(guardado)} de ${brl(mt.alvo)}</li>
+      <li><b>Ritmo atual:</b> Guardando ${brl(mt.mensal)}/mês, você atinge o objetivo em <b>${mesesRest} ${mesesRest===1?'mês':'meses'}</b>.</li>
+      ${rx.alivioProxMes > 0 ? `<li>💡 <b>Acelerador:</b> Como ${brl(rx.alivioProxMes)} em parcelas acabam neste mês, se você direcionar metade desse alívio (${brl(rx.alivioProxMes/2)}) como aporte extra no mês que vem, você encurta o prazo da sua meta!</li>` : ''}
+    </ul>`;
+  }
+
+  // 3. Pergunta sobre PRIORIDADES / DÍVIDAS / O QUE PAGAR PRIMEIRO
+  if (q.includes('prioriz') || q.includes('primeiro') || q.includes('dívida') || q.includes('divida') || q.includes('atras')){
+    let resp = `<b>🎯 Ordem de Prioridade para ${nomeMes(mes)}:</b><ul>`;
+    if (rx.atrasadas.length){
+      const nomesAtr = rx.atrasadas.map(x=>`<b>${esc(x.it.nome)}</b> (${brl(x.it.valor)}, venceu dia ${x.it.dia})`).join(', ');
+      resp += `<li>🚨 <b>Urgência Máxima (Em atraso):</b> Quite imediatamente ${nomesAtr} para estancar multas e juros diários.</li>`;
+    }
+    if (rx.vencendoLogo.length){
+      const nomesLogo = rx.vencendoLogo.map(x=>`<b>${esc(x.it.nome)}</b> (dia ${x.it.dia} - ${brl(x.it.valor)})`).join(', ');
+      resp += `<li>⏰ <b>Vencendo nos próximos 3 dias:</b> Separe o valor de ${nomesLogo}.</li>`;
+    }
+    const cartoesPendentes = rx.pendentes.filter(x=>(x.it.cat||'').toLowerCase().includes('cart'));
+    if (cartoesPendentes.length){
+      const maiorCartao = cartoesPendentes[0].it;
+      resp += `<li>💳 <b>Evite Juros Rotativos:</b> Você tem <b>${esc(maiorCartao.nome)}</b> (${brl(maiorCartao.valor)}) em aberto. Priorize o pagamento integral da fatura antes de qualquer gasto variável, pois o rotativo do cartão é a dívida mais cara do mercado.</li>`;
+    }
+    if (rx.pendentes.length){
+      const maior = rx.pendentes[0].it;
+      resp += `<li>📌 <b>Maior peso pendente:</b> Sua conta mais alta em aberto é <b>${esc(maior.nome)}</b> (${brl(maior.valor)}, vence dia ${maior.dia}).</li>`;
+    } else {
+      resp += `<li>✅ <b>Parabéns!</b> Todas as contas de ${nomeMes(mes)} já estão marcadas como pagas!</li>`;
+    }
+    resp += `</ul>`;
+    return resp;
+  }
+
+  // 4. Pergunta sobre PARCELAS / ANTECIPAÇÃO
+  if (q.includes('parcela') || q.includes('antecip')){
+    if (!rx.parceladas.length){
+      return `Você não tem nenhuma conta parcelada ativa em <b>${nomeMes(mes)}</b>. Isso é excelente para manter seu orçamento livre nos próximos meses!`;
+    }
+    const somaParc = rx.parceladas.reduce((s,x)=>s+x.it.valor,0);
+    const pctParc = rx.total ? Math.round(somaParc/rx.total*100) : 0;
+    let resp = `<b>💳 Raio-X das suas Parcelas (${brl(somaParc)} • ${pctParc}% das saídas):</b><ul>`;
+    rx.parceladas.forEach(({it, info})=>{
+      resp += `<li><b>${esc(it.nome)}</b>: ${brl(it.valor)} (Parcela ${info.atual}/${it.total} — ${info.faltam===0?'<b>acaba neste mês! 🎉</b>':'faltam '+info.faltam+' após este mês'})</li>`;
+    });
+    resp += `</ul>`;
+    if (rx.alivioProxMes > 0){
+      resp += `<p style="margin-top:6px">💡 <b>Boa notícia:</b> Como ${rx.acabamEsteMes.length===1?'uma conta parcelada termina':'algumas parcelas terminam'} neste mês, no mês que vem você terá um <b>alívio automático de ${brl(rx.alivioProxMes)}</b> nas suas contas! Evite assumir novas parcelas agora para sentir essa folga no bolso.</p>`;
+    } else {
+      resp += `<p style="margin-top:6px">💡 <b>Dica de Ouro:</b> Se tiver algum dinheiro extra, verifique no app do banco se há desconto para antecipar as últimas parcelas da menor dívida (Método Bola de Neve). Assim você elimina um custo fixo dos meses seguintes.</p>`;
+    }
+    return resp;
+  }
+
+  // 5. Pergunta sobre ONDE CORTAR GASTOS / ECONOMIZAR
+  if (q.includes('cortar') || q.includes('economiz') || q.includes('reduz') || q.includes('gasto') || q.includes('corte')){
+    const [topCat, topVal] = rx.rankingCats[0] || ['Sem categoria', 0];
+    const pctTop = rx.total ? Math.round(topVal/rx.total*100) : 0;
+    const lazerVal = (rx.rankingCats.find(([k])=>k==='Lazer')||[0,0])[1];
+    const alimVal  = (rx.rankingCats.find(([k])=>k==='Alimentação')||[0,0])[1];
+    const contVal  = (rx.rankingCats.find(([k])=>k==='Contas')||[0,0])[1];
+
+    let resp = `<b>✂️ Plano de Otimização de Gastos (${nomeMes(mes)}):</b><ul>`;
+    resp += `<li>📊 <b>Seu maior foco de saída:</b> A categoria <b>${esc(topCat)}</b> concentra <b>${brl(topVal)} (${pctTop}% do total)</b>.</li>`;
+    if (lazerVal > 0 || alimVal > 0){
+      resp += `<li>🍽️🎮 <b>Gastos Flexíveis (Alimentação + Lazer):</b> Somam <b>${brl(lazerVal + alimVal)}</b>. Reduzir apenas 20% em entregas/saídas já libera <b>${brl((lazerVal + alimVal)*0.2)}</b> no seu orçamento imediatamente.</li>`;
+    }
+    if (contVal > 0){
+      resp += `<li>📱 <b>Revisão de Planos e Assinaturas (${brl(contVal)}):</b> Verifique se há planos de celular/internet ou streamings que podem ser renegociados ou pausados.</li>`;
+    }
+    resp += `<li>🎯 <b>Regra Prática:</b> Estabeleça um teto semanal para gastos variáveis. Deixar o saldo livre na conta-corrente após pagar os boletos costuma gerar pequenos gastos invisíveis no PIX.</li></ul>`;
+    return resp;
+  }
+
+  // 6. Pergunta sobre LAZER / QUANTO POSSO GASTAR
+  if (q.includes('lazer') || q.includes('posso gastar') || q.includes('sobra') || q.includes('livre')){
+    if (rx.recebido <= 0){
+      return `Suas contas cadastradas neste mês somam <b>${brl(rx.total)}</b> (faltam pagar <b>${brl(rx.falta)}</b>). Se quiser que eu calcule exatamente quanto sobra por fim de semana para lazer, basta informar seu salário ali em <b>Recebimentos</b>!`;
+    }
+    if (rx.saldoProjetado < 0){
+      return `⚠️ <b>Atenção máxima:</b> Neste mês suas contas (${brl(rx.total)}) superam seus recebimentos (${brl(rx.recebido)}) em <b>${brl(Math.abs(rx.saldoProjetado))}</b>. O momento pede <b>custo zero em compras extras</b> até reequilibrar o mês.`;
+    }
+    const reservaSugerida = db.meta ? 0 : rx.saldoProjetado * 0.3;
+    const livreSeguro = Math.max(0, rx.saldoProjetado - reservaSugerida);
+    const porFimDeSemana = livreSeguro / 4;
+    return `<b>🎮 Margem Segura para Lazer em ${nomeMes(mes)}:</b><ul>
+      <li><b>Sobra prevista após quitar tudo:</b> <span class="pos"><b>${brl(rx.saldoProjetado)}</b></span></li>
+      <li><b>Disponível em caixa hoje (Recebido − Pago):</b> ${brl(rx.disponivelAgora)} (lembrando que ainda faltam pagar <b>${brl(rx.falta)}</b> em contas!).</li>
+      <li>💡 <b>Recomendação do Conselheiro:</b> Separando uma margem de segurança para imprevistos, você pode usar até <b>${brl(livreSeguro)}</b> no mês (cerca de <b>${brl(porFimDeSemana)} por fim de semana</b>) sem comprometer nenhuma conta!</li>
+    </ul>`;
+  }
+
+  // 7. DIAGNÓSTICO COMPLETO DO MÊS (Resposta padrão)
+  const [topCat, topVal] = rx.rankingCats[0] || ['Geral', 0];
+  const taxaComprometimento = rx.recebido ? Math.round(rx.total / rx.recebido * 100) : null;
+
+  let diag = `<b>📊 Diagnóstico Financeiro — ${nomeMes(mes)}</b><ul>`;
+  diag += `<li><b>Total de contas:</b> ${brl(rx.total)} (${brl(rx.pago)} já pagos • faltam <b>${brl(rx.falta)}</b>)</li>`;
+  if (rx.recebido > 0){
+    diag += `<li><b>Renda comprometida:</b> <b>${taxaComprometimento}%</b> dos seus recebimentos (${brl(rx.recebido)}) vão para as contas cadastradas.</li>`;
+    diag += `<li><b>Sobra prevista no mês:</b> <b class="${rx.saldoProjetado<0?'neg':'pos'}">${brl(rx.saldoProjetado)}</b></li>`;
+  }
+  diag += `<li><b>Maior categoria:</b> ${esc(topCat)} (${brl(topVal)})</li>`;
+  if (rx.alivioProxMes > 0){
+    diag += `<li>🎉 <b>Fôlego chegando:</b> ${brl(rx.alivioProxMes)} em parcelas terminam neste mês!</li>`;
+  }
+  diag += `</ul>`;
+
+  if (rx.saldoProjetado < 0 && rx.recebido > 0){
+    diag += `<p style="margin-top:6px">⚠️ <b>Ação recomendada:</b> Suas contas estão superando seus recebimentos em ${brl(Math.abs(rx.saldoProjetado))}. Toque em <i>"Onde cortar gastos?"</i> aqui embaixo para ajustarmos.</p>`;
+  } else if (taxaComprometimento !== null && taxaComprometimento > 80){
+    diag += `<p style="margin-top:6px">⚡ <b>Alerta de Margem Curta:</b> Mais de 80% da sua renda já está comprometida. Evite novos parcelamentos neste mês.</p>`;
+  } else {
+    diag += `<p style="margin-top:6px">✅ <b>Próximo passo:</b> Priorize dar baixa nas contas pendentes (${brl(rx.falta)}) antes do vencimento. Toque nos botões rápidos abaixo para analisar prioridades ou parcelas!</p>`;
+  }
+  return diag;
+}
+
+function addMsgChat(html, quem){
+  const box = $('chatMsgs');
+  const div = document.createElement('div');
+  div.className = `msg-bub ${quem==='usr'?'msg-usr':'msg-adv'}`;
+  div.innerHTML = html;
+  box.appendChild(div);
+  box.scrollTop = box.scrollHeight;
+}
+
+function enviarPerguntaConselheiro(texto){
+  const p = String(texto||'').trim();
+  if (!p) return;
+  addMsgChat(esc(p), 'usr');
+  $('chatInput').value = '';
+  setTimeout(()=>{
+    addMsgChat(gerarRespostaConsultorLocal(p), 'adv');
+  }, 180);
+}
+
+$('btnConselheiro').onclick = ()=>{
+  $('advMesNome').textContent = nomeMes(mes);
+  $('chatMsgs').innerHTML = '';
+  addMsgChat(`Olá! Sou seu <b>Conselheiro Financeiro</b>. Analisei suas contas de <b>${nomeMes(mes)}</b>:<br><br>` + gerarRespostaConsultorLocal('Diagnóstico completo do meu mês'), 'adv');
+  dlgChat.showModal();
+};
+
+$('btnFecharChat').onclick = ()=>dlgChat.close();
+
+$('formChat').addEventListener('submit', e=>{
+  e.preventDefault();
+  enviarPerguntaConselheiro($('chatInput').value);
+});
+
+document.querySelectorAll('.chip-q').forEach(btn=>{
+  btn.onclick = ()=>enviarPerguntaConselheiro(btn.dataset.q);
 });
 
 render();
-if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
 </html>
